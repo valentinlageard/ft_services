@@ -2,6 +2,9 @@
 mkdir /var/www/mywebsite #&& touch /var/www/mywebsite/index.php ;
 #echo "<?php phpinfo(); ?>" >> /var/www/mywebsite/index.php ;
 
+# Instal PHP
+RUN apk update && apk add php7 php7-fpm php7-opcache php7-gd php7-mysqli php7-zlib php7-curl php7-mbstring php7-json php7-session
+
 # Generate self-signed certificate and key
 openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/ssl/certs/mywebsite.pem -keyout /etc/ssl/private/mywebsite.key -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=vlageard/CN=mywebsite" ;
 

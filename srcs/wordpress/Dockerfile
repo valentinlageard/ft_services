@@ -8,4 +8,6 @@ COPY ./init.sh ./
 COPY ./nginx-conf ./tmp/nginx-conf
 COPY ./wp-config.php ./tmp/wp-config.php
 
+EXPOSE 5050
+
 CMD bash ./init.sh
