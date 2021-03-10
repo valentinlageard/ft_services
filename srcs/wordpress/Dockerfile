@@ -1,13 +1,13 @@
 FROM alpine:3.13
 
-RUN apk update
-RUN apk add nginx
-RUN apk add wget
-
+COPY ./install.sh ./
 COPY ./init.sh ./
-COPY ./nginx-conf ./tmp/nginx-conf
-COPY ./wp-config.php ./tmp/wp-config.php
+COPY ./nginx.conf /tmp/nginx.conf
+COPY ./wp-config.php /tmp/wp-config.php
 
-EXPOSE 5050
+EXPOSE 80
+EXPOSE 443
 
-CMD bash ./init.sh
+RUN chmod +x ./install.sh && ./install.sh
+
+CMD sh ./init.sh
