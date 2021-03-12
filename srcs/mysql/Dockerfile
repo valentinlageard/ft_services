@@ -2,7 +2,7 @@ FROM alpine:3.13
 
 RUN apk update && apk add mariadb mariadb-common mariadb-client
 
-COPY ./mysql.cnf /etc/my.cnf.d/mariadb-server.cnf
+COPY ./my.cnf /etc/my.cnf.d/mariadb-server.cnf
 
 EXPOSE 3306
 

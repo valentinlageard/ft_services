@@ -1,19 +1,9 @@
-DB_NAME=wordpress;
-DB_USER=wp_user;
-DB_PASSWORD=password;
-DB_HOST=mysql;
+mysql_install_db --ldata=/var/lib/mysql;
+mysqld --datadir="/var/lib/mysql" &
+sleep 5;
+echo "CREATE DATABASE IF NOT EXISTS wordpress;" | mysql -u root --skip-password
+echo "CREATE USER 'root'@'%' IDENTIFIED BY '';" | mysql -u root --skip-password
+echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'%' WITH GRANT OPTION;" | mysql -u root --skip-password
+echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
 
-tmpsql="/tmp/init_sql"
-echo > $tmpsql \
-"CREATE DATABASE IF NOT EXISTS ${DB_NAME};
-CREATE USER IF NOT EXISTS ${DB_USER} IDENTIFIED BY '${DB_PASSWORD}';
-GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'%';
-FLUSH PRIVILEGES;
-GRANT ALL ON *.* TO '${DB_USER}'@'127.0.0.1' IDENTIFIED BY '${DB_PASSWORD}' WITH GRANT OPTION;
-GRANT ALL ON *.* TO '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}';
-GRANT ALL PRIVILEGES ON *.* TO '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}' WITH GRANT OPTION;
-FLUSH PRIVILEGES;"
-
-sh;
+sh
