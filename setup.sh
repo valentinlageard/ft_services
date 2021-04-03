@@ -12,6 +12,7 @@ kubectl create -f ./srcs/metallb-config.yaml
 #kubectl apply -k ./srcs/ # Need a kustomization.yaml for secrets
 
 # Build
+docker build -t nginx_img srcs/nginx
 docker build -t mysql_img srcs/mysql
 docker build -t wordpress_img srcs/wordpress
 
@@ -27,6 +28,7 @@ kubectl create secret generic mysql-id \
 	--from-literal=host=${DB_HOST}
 
 # Deploy
+kubectl create -f ./srcs/nginx.yaml
 kubectl create -f ./srcs/mysql.yaml
 kubectl create -f ./srcs/wordpress.yaml
 
