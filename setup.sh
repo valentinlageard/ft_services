@@ -15,6 +15,7 @@ kubectl create -f ./srcs/metallb-config.yaml
 docker build -t nginx_img srcs/nginx
 docker build -t mysql_img srcs/mysql
 docker build -t wordpress_img srcs/wordpress
+docker build -t phpmyadmin_img srcs/phpmyadmin
 
 DB_NAME=wordpress;
 DB_USER=wp_user;
@@ -31,6 +32,7 @@ kubectl create secret generic mysql-id \
 kubectl create -f ./srcs/nginx.yaml
 kubectl create -f ./srcs/mysql.yaml
 kubectl create -f ./srcs/wordpress.yaml
+kubectl create -f ./srcs/phpmyadmin.yaml
 
 # Launch dashboard
 minikube dashboard
