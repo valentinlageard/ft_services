@@ -16,6 +16,7 @@ docker build -t nginx_img srcs/nginx
 docker build -t mysql_img srcs/mysql
 docker build -t wordpress_img srcs/wordpress
 docker build -t phpmyadmin_img srcs/phpmyadmin
+docker build -t ftps_img srcs/ftps
 
 DB_NAME=wordpress;
 DB_USER=wp_user;
@@ -33,6 +34,7 @@ kubectl create -f ./srcs/nginx.yaml
 kubectl create -f ./srcs/mysql.yaml
 kubectl create -f ./srcs/wordpress.yaml
 kubectl create -f ./srcs/phpmyadmin.yaml
+kubectl create -f ./srcs/ftps.yaml
 
 # Launch dashboard
 minikube dashboard
