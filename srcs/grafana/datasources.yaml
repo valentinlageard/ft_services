@@ -1,0 +1,30 @@
+apiVersion: 1
+datasources:
+- name: telegraf-influxdb
+  type: influxdb
+  url: http://influxdb:8086
+  database: telegraf-influxdb
+- name: telegraf-nginx
+  type: influxdb
+  url: http://influxdb:8086
+  database: telegraf-nginx
+- name: telegraf-grafana
+  type: influxdb
+  url: http://influxdb:8086
+  database: telegraf-grafana
+- name: telegraf-ftps
+  type: influxdb
+  url: http://influxdb:8086
+  database: telegraf-ftps
+- name: telegraf-mysql
+  type: influxdb
+  url: http://influxdb:8086
+  database: telegraf-mysql
+- name: telegraf-phpmyadmin
+  type: influxdb
+  url: http://influxdb:8086
+  database: telegraf-phpmyadmin
+- name: telegraf-wordpress
+  type: influxdb
+  url: http://influxdb:8086
+  database: telegraf-wordpress

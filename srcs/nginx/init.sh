@@ -2,6 +2,7 @@
 apk update
 apk add nginx
 apk add openssl
+apk add telegraf
 rm -rf /var/cache/apk/*
 
 # Generate self-signed certificate and key
@@ -12,6 +13,6 @@ mv /tmp/nginx.conf /etc/nginx/conf.d/
 mkdir /run/nginx
 rm /etc/nginx/http.d/default.conf
 
-nginx
+nginx & telegraf --config /etc/telegraf.conf
 
 sleep infinity

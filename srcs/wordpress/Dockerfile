@@ -4,6 +4,7 @@ COPY ./init.sh ./
 COPY ./nginx.conf /tmp/nginx.conf
 COPY ./wordpress /tmp/wordpress
 COPY ./wp-config.php /tmp/wp-config.php
+COPY ./telegraf.conf /etc/telegraf.conf
 
 EXPOSE 5050
 

@@ -4,6 +4,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
 RUN apk update && apk add mariadb mariadb-common mariadb-client
 
 COPY ./my.cnf /etc/my.cnf.d/mariadb-server.cnf
+COPY ./telegraf.conf /etc/telegraf.conf
 
 EXPOSE 3306
 

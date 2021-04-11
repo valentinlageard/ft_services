@@ -1,3 +1,5 @@
+apk add telegraf
+
 mysql_install_db --ldata=/var/lib/mysql
 sleep 5
 mysqld --datadir="/var/lib/mysql" --default-authentication-plugin=mysql_native_password &
@@ -7,6 +9,6 @@ echo "CREATE USER 'wp_user'@'%' IDENTIFIED BY 'password';" | mysql -u root --ski
 echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wp_user'@'%' WITH GRANT OPTION;" | mysql -u root --skip-password
 echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
 
-mysql -h localhost
+mysql -h localhost  & telegraf --config /etc/telegraf.conf
 
 sleep infinity
