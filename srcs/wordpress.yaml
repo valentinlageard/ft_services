@@ -49,27 +49,6 @@ spec:
       - name: wordpress
         image: wordpress_img
         imagePullPolicy: Never
-        env:
-        - name: DB_NAME
-          valueFrom:
-            secretKeyRef:
-              name: mysql-id
-              key: name
-        - name: DB_USER
-          valueFrom:
-            secretKeyRef:
-              name: mysql-id
-              key: user
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-id
-              key: password
-        - name: DB_HOST
-          valueFrom:
-            secretKeyRef:
-              name: mysql-id
-              key: host
         ports:
         - containerPort: 5050
           name: https

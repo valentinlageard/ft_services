@@ -5,6 +5,7 @@ RUN apk update && apk add mariadb mariadb-common mariadb-client
 
 COPY ./init.sh ./
 COPY ./check.sh ./
+COPY ./wordpress.sql ./
 COPY ./my.cnf /etc/my.cnf.d/mariadb-server.cnf
 COPY ./telegraf.conf /etc/telegraf.conf
 

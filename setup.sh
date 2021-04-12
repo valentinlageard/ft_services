@@ -20,17 +20,6 @@ docker build -t phpmyadmin_img srcs/phpmyadmin
 docker build -t ftps_img srcs/ftps
 docker build -t grafana_img srcs/grafana
 
-DB_NAME=wordpress;
-DB_USER=wp_user;
-DB_PASSWORD=password;
-DB_HOST=mysql;
-
-kubectl create secret generic mysql-id \
-	--from-literal=name=${DB_NAME} \
-	--from-literal=user=${DB_USER} \
-	--from-literal=password=${DB_PASSWORD} \
-	--from-literal=host=${DB_HOST}
-
 # Deploy
 kubectl create -f ./srcs/influxdb.yaml
 kubectl create -f ./srcs/mysql.yaml

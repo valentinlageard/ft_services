@@ -28,7 +28,7 @@ spec:
     requests:
       storage: 2Gi
 ---
-apiVersion: apps/v1 # for versions before 1.9.0 use runs/v1beta2
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql
@@ -49,27 +49,6 @@ spec:
       - name: mysql
         image: mysql_img
         imagePullPolicy: Never
-        env:
-        - name: DB_NAME
-          valueFrom:
-            secretKeyRef:
-              name: mysql-id
-              key: name
-        - name: DB_USER
-          valueFrom:
-            secretKeyRef:
-              name: mysql-id
-              key: user
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-id
-              key: password
-        - name: DB_HOST
-          valueFrom:
-            secretKeyRef:
-              name: mysql-id
-              key: host
         ports:
         - containerPort: 3306
         livenessProbe:
