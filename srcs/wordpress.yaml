@@ -73,6 +73,13 @@ spec:
         ports:
         - containerPort: 5050
           name: https
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - /check.sh
+          initialDelaySeconds: 10
+          periodSeconds: 5
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: /var/www/locahost

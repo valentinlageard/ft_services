@@ -44,3 +44,10 @@ spec:
           name: ftps
         - containerPort: 40000
           name: pasv
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - /check.sh
+          initialDelaySeconds: 10
+          periodSeconds: 5
