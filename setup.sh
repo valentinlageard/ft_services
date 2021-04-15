@@ -3,7 +3,11 @@ sudo service nginx stop
 
 # Update minikube
 curl -LO https://github.com/kubernetes/minikube/releases/download/v1.19.0/minikube_1.19.0-0_amd64.deb
-sudo rm -f /usr/local/bin/minikube 
+sudo rm /var/lib/dpkg/lock-frontend
+sudo rm /var/lib/apt/lists/lock
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+sudo rm -f /usr/local/bin/minikube
 sudo apt install ./minikube_1.19.0-0_amd64.deb
 
 # Update kubectl

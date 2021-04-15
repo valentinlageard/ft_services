@@ -10,7 +10,6 @@ A clustering project for 42.
 
 In the VM you may need to :
 - Check if you have 2 CPUs in the VM settings.
-- Stop the default nginx server with : `service nginx stop`
 - Add the user to the docker group so minikube may use docker properly with : `sudo usermod -aG docker $USER`. You the need to unlog and relog for the change to take effect.
 
 Then finally : `./setup.sh`
