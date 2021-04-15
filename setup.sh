@@ -1,12 +1,16 @@
+# Stop default nginx
+sudo service nginx stop
+
 # Update minikube
-wget https://github.com/kubernetes/minikube/releases/download/v1.19.0/minikube_1.19.0-0_amd64.deb
+curl -LO https://github.com/kubernetes/minikube/releases/download/v1.19.0/minikube_1.19.0-0_amd64.deb
 sudo rm -f /usr/local/bin/minikube 
 sudo apt install ./minikube_1.19.0-0_amd64.deb
 
 # Update kubectl
-curl -LO https://dl.k8s.io/release/v1.21.2/bin/linux/amd64/kubectl
 sudo rm -f /usr/local/bin/kubectl
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+curl -LO https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl
+sudo chmod +x kubectl
+sudo cp kubectl /usr/local/bin
 
 # Launch minikube
 minikube stop
@@ -18,7 +22,7 @@ eval $(minikube docker-env)
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
-kubectl create -f ./srcs/metallb-config.yaml
+kubectl apply -f ./srcs/metallb-config.yaml
 
 # Build
 docker build -t influxdb_img srcs/influxdb

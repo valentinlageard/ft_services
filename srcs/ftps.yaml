@@ -14,8 +14,17 @@ spec:
   - name: ftps
     port: 21
     protocol: TCP
-  - name: pasv
-    port: 40000
+  - name: pasv0
+    port: 20000
+    protocol: TCP
+  - name: pasv1
+    port: 20001
+    protocol: TCP
+  - name: pasv2
+    port: 20002
+    protocol: TCP
+  - name: pasv3
+    port: 20003
     protocol: TCP
 ---
 apiVersion: apps/v1

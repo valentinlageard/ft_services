@@ -5,7 +5,7 @@ COPY ./check.sh ./
 COPY ./vsftpd.conf /tmp/vsftpd.conf
 COPY ./telegraf.conf /etc/telegraf.conf
 
-EXPOSE 21
+EXPOSE 21 20000-20004
 
 RUN chmod +x /init.sh
 RUN chmod +x /check.sh
