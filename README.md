@@ -6,9 +6,14 @@ A clustering project for 42.
 
 ![Cluster](diagram.png)
 
-## Launch
+## Setup
 
-`./setup.sh`
+In the VM you may need to :
+- Check if you have 2 CPUs in the VM settings.
+- Stop the default nginx server with : `service nginx stop`
+- Add the user to the docker group so minikube may use docker properly with : `sudo usermod -aG docker $USER`. You the need to unlog and relog for the change to take effect.
+
+Then finally : `./setup.sh`
 
 ## Features
 
@@ -24,7 +29,4 @@ A clustering project for 42.
 - **Grafana** : admin / admin
 - **PHPmyadmin** : wp_user / password
 - **Wordpress** : salut / salut
-
-## TODO
-
-- Configurer metallb pour qu'il fonctionne dans la vm.
+- **FTPS** : ftps_user / NO_PASSWORD
