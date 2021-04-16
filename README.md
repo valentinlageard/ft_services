@@ -28,4 +28,4 @@ Then finally : `./setup.sh`
 - **Grafana** : admin / admin
 - **PHPmyadmin** : wp_user / password
 - **Wordpress** : salut / salut
-- **FTPS** : ftps_user / NO_PASSWORD
+- **FTPS** : ftps_user / password
