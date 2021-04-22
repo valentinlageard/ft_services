@@ -1,5 +1,9 @@
 FROM alpine:3.13
 
+RUN apk update
+RUN apk add grafana
+RUN apk add telegraf
+
 COPY ./init.sh ./
 COPY ./check.sh ./
 COPY ./datasources.yaml /usr/share/grafana/conf/provisioning/datasources/

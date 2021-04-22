@@ -1,5 +1,9 @@
 FROM alpine:3.13
 
+RUN apk update
+RUN apk add openssl vsftpd
+RUN apk add telegraf
+
 COPY ./init.sh /init.sh
 COPY ./check.sh ./
 COPY ./vsftpd.conf /tmp/vsftpd.conf

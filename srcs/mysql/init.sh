@@ -1,5 +1,3 @@
-apk add telegraf
-
 mysql_install_db --ldata=/var/lib/mysql
 
 chown mysql:mysql -R /var/lib/mysql

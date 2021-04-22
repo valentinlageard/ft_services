@@ -22,6 +22,9 @@ $cfg['blowfish_secret'] = '01234567890123456789012345678901'; /* YOU MUST FILL I
  */
 $i = 0;
 
+/* Needed for reverse proxy to work properly */
+$cfg['PmaAbsoluteUri'] = './';
+
 /**
  * First server
  */
